@@ -273,6 +273,9 @@ namespace Cleverbot.Net
 
         #endregion
 
+        /// <summary>
+        /// Id to keep track of the conversation
+        /// </summary>
         public string ConversationId
         {
             get
@@ -280,11 +283,26 @@ namespace Cleverbot.Net
                 return cs;
             }
         }
+
+        /// <summary>
+        /// Cleverbot's response
+        /// </summary>
         public string Response
         {
             get
             {
                 return output;
+            }
+        }
+
+        /// <summary>
+        /// The user's latest message
+        /// </summary>
+        public string Input
+        {
+            get
+            {
+                return inputMessage;
             }
         }
 
@@ -759,9 +777,14 @@ namespace Cleverbot.Net
         {
             return Create(text, ConversationId, apikey);
         }
+
+        public async Task<CleverbotResponse> RespondAsync(string text)
+        {
+            return await CreateAsync(text, conversationId, apikey);
+        }
         public async Task RespondAsync(string text, Action<CleverbotResponse> resultAction)
         {
-            await CreateAsync(text, conversationId, apikey, resultAction);
+            CreateAsync(text, conversationId, apikey, resultAction);
         }
     }
 }

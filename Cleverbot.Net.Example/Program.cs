@@ -24,7 +24,7 @@ namespace Cleverbot.Net.Example
 
                 string msg = Console.ReadLine();
 
-                await cleverbot.GetResponseAsync(msg, x =>
+                cleverbot.GetResponseAsync(msg, x =>
                 {
                     Console.CursorLeft = 0;
 
