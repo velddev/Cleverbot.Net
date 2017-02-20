@@ -51,7 +51,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\cleverbot.net\cleverbot.net\Cleverbot.Net.csproj">
+    <ProjectReference Include="..\Cleverbot.Net\Cleverbot.Net.csproj">
       <Project>{d5d91dc2-758d-4a48-83c5-b0fe694a25e1}</Project>
       <Name>Cleverbot.Net</Name>
     </ProjectReference>

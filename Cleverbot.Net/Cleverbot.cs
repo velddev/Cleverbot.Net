@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 
 namespace Cleverbot.Net
 {
-//    public delegate Task CleverbotResponseCompleteAsyncEvent(CleverbotResponse c);
-
     public class Cleverbot
     {
         private string ApiKey = "";
@@ -33,11 +31,21 @@ namespace Cleverbot.Net
         /// Send a message to cleverbot asynchronously and get a response.
         /// </summary>
         /// <param name="message">your message sent to cleverbot</param>
+        /// <returns></returns>
+        public async Task<CleverbotResponse> GetResponseAsync(string message)
+        {
+            return await CleverbotResponse.CreateAsync(message, "", ApiKey);
+        }
+
+        /// <summary>
+        /// Send a message to cleverbot asynchronously and get a response.
+        /// </summary>
+        /// <param name="message">your message sent to cleverbot</param>
         /// <param name="result">result delegate </param>
         /// <returns></returns>
-        public async Task<CleverbotResponse> GetResponseAsync(string message, Action<CleverbotResponse> result = null)
+        public void GetResponseAsync(string message, Action<CleverbotResponse> result)
         {
-            return await CleverbotResponse.CreateAsync(message, "", ApiKey, result);
+            CleverbotResponse.CreateAsync(message, "", ApiKey, result);
         }
     }
 }
