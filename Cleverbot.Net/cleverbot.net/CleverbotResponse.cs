@@ -312,7 +312,7 @@ namespace Cleverbot.Net
             }
             return null;
         }
-        internal static async Task CreateAsync(string message, string conversationId, string apiKey, Action<CleverbotResponse> resultAction)
+        internal static async Task CreateAsync(string message, string conversationId, string apiKey, Action<CleverbotResponse> resultAction = null)
         {
             WebClient c = new WebClient();
 
@@ -337,7 +337,7 @@ namespace Cleverbot.Net
                         response.apikey = apiKey;
                         response.CreateInteractionsList();
 
-                        resultAction.Invoke(response);
+                        resultAction?.Invoke(response);
                     }
                 }
             };
