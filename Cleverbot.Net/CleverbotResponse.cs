@@ -312,7 +312,13 @@ namespace Cleverbot.Net
             }
             return null;
         }
-        internal static async Task CreateAsync(string message, string conversationId, string apiKey, Action<CleverbotResponse> resultAction = null)
+
+        internal static async Task<CleverbotResponse> CreateAsync(string message, string conversationId, string apiKey)
+        {
+            // TODO: make this less nasty
+            return await Task.Run(() => { return Create(message, conversationId, apiKey); });
+        }
+        internal static void CreateAsync(string message, string conversationId, string apiKey, Action<CleverbotResponse> resultAction)
         {
             WebClient c = new WebClient();
 
