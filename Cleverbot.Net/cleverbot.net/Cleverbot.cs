@@ -35,9 +35,9 @@ namespace Cleverbot.Net
         /// <param name="message">your message sent to cleverbot</param>
         /// <param name="result">result delegate </param>
         /// <returns></returns>
-        public async Task GetResponseAsync(string message, Action<CleverbotResponse> result)
+        public async Task<CleverbotResponse> GetResponseAsync(string message, Action<CleverbotResponse> result = null)
         {
-            await CleverbotResponse.CreateAsync(message, "", ApiKey, result);
+            return await CleverbotResponse.CreateAsync(message, "", ApiKey, result);
         }
     }
 }
