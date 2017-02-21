@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks
 using Newtonsoft.Json;
 using System.Net;
 
@@ -265,6 +265,7 @@ namespace Cleverbot.Net
         internal string interaction50;
 
         // ("interaction_1_other")]
+
         internal string interaction1other;
 
         internal List<string> interactions = new List<string>();
@@ -274,21 +275,21 @@ namespace Cleverbot.Net
         /// <summary>
         /// Id to keep track of the conversation
         /// </summary>
+
         public string ConversationId => cs;
 
-        /// <summary>
-        /// Cleverbot's response
-        /// </summary>
         public string Response => output;
 
         /// <summary>
         /// The user's latest message
         /// </summary>
+
         public string Input => inputMessage;
 
         private string apiKey;
 
         internal static async Task<CleverbotResponse> CreateAsync(string message, string conversationId, string apiKey)
+
         {
             WebClient c = new WebClient();
 
@@ -313,441 +314,7 @@ namespace Cleverbot.Net
 
         internal void CreateInteractionsList()
         {
-            //if (string.IsNullOrWhiteSpace(interaction1))
-            //{
-            //    interactions.Add(interaction1);
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction2))
-            //{
-            //    interactions.Add(interaction2);
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction3))
-            //{
-            //    interactions.Add(interaction3);
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction4))
-            //{
-            //    interactions.Add(interaction4);
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction5))
-            //{
-            //    interactions.Add(interaction5);
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction6))
-            //{
-            //    interactions.Add(interaction6);
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction7))
-            //{
-            //    interactions.Add(interaction7);
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction8))
-            //{
-            //    interactions.Add(interaction8);
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction9))
-            //{
-            //    interactions.Add(interaction9);
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction10))
-            //{
-            //    interactions.Add(interaction10);
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction11))
-            //{
-            //    interactions.Add(interaction11);
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction12))
-            //{
-            //    interactions.Add(interaction12);
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction13))
-            //{
-            //    interactions.Add(interaction13);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction14))
-            //{
-            //    interactions.Add(interaction14);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction15))
-            //{
-            //    interactions.Add(interaction15);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction16))
-            //{
-            //    interactions.Add(interaction16);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction17))
-            //{
-            //    interactions.Add(interaction17);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction18))
-            //{
-            //    interactions.Add(interaction18);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction19))
-            //{
-            //    interactions.Add(interaction19);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction20))
-            //{
-            //    interactions.Add(interaction20);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction21))
-            //{
-            //    interactions.Add(interaction21);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction22))
-            //{
-            //    interactions.Add(interaction22);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction23))
-            //{
-            //    interactions.Add(interaction23);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction24))
-            //{
-            //    interactions.Add(interaction24);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction25))
-            //{
-            //    interactions.Add(interaction25);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction26))
-            //{
-            //    interactions.Add(interaction26);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction27))
-            //{
-            //    interactions.Add(interaction27);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction28))
-            //{
-            //    interactions.Add(interaction28);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction29))
-            //{
-            //    interactions.Add(interaction29);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction30))
-            //{
-            //    interactions.Add(interaction30);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction31))
-            //{
-            //    interactions.Add(interaction31);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction32))
-            //{
-            //    interactions.Add(interaction32);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction33))
-            //{
-            //    interactions.Add(interaction33);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction34))
-            //{
-            //    interactions.Add(interaction34);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction1))
-            //{
-            //    interactions.Add(interaction35);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction36))
-            //{
-            //    interactions.Add(interaction36);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction37))
-            //{
-            //    interactions.Add(interaction37);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction38))
-            //{
-            //    interactions.Add(interaction38);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-
-            //if (string.IsNullOrWhiteSpace(interaction39))
-            //{
-            //    interactions.Add(interaction39);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction40))
-            //{
-            //    interactions.Add(interaction40);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction41))
-            //{
-            //    interactions.Add(interaction41);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction42))
-            //{
-            //    interactions.Add(interaction42);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction43))
-            //{
-            //    interactions.Add(interaction43);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction44))
-            //{
-            //    interactions.Add(interaction44);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction45))
-            //{
-            //    interactions.Add(interaction45);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction46))
-            //{
-            //    interactions.Add(interaction46);
-
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction47))
-            //{
-            //    interactions.Add(interaction47);
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction48))
-            //{
-            //    interactions.Add(interaction48);
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction49))
-            //{
-            //    interactions.Add(interaction49);
-            //}
-            //else
-            //{
-            //    return;
-            //}
-            //if (string.IsNullOrWhiteSpace(interaction50))
-            //{
-            //    interactions.Add(interaction50);
-            //}
-            //else
-            //{
-            //    return;
-            //}
+            
             foreach (var item in GetType().GetFields())
             {
                 if (item.Name.StartsWith("interaction"))
@@ -762,7 +329,9 @@ namespace Cleverbot.Net
 
         public CleverbotResponse Respond(string text)
         {
+
             return CreateAsync(text, ConversationId, apiKey).Result;
+
         }
 
         public async Task<CleverbotResponse> RespondAsync(string text)
@@ -770,5 +339,6 @@ namespace Cleverbot.Net
             return await CreateAsync(text, conversationId, apiKey);
         }
        
+
     }
 }

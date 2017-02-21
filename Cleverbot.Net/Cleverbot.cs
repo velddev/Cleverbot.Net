@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,7 @@ namespace Cleverbot.Net
 {
     public class Cleverbot
     {
+
         private string ApiKey { get; }
         
         /// <summary>
@@ -38,6 +39,7 @@ namespace Cleverbot.Net
         }
 
         /// <summary>
+
         /// Send a message to cleverbot and get a response to it. Consider using <see cref="GetResponseAsync(string)"/>
         /// </summary>
         /// <param name="message">your message sent to cleverbot</param>
@@ -58,6 +60,6 @@ namespace Cleverbot.Net
             return await CleverbotResponse.CreateAsync(message, "", ApiKey);
         }
 
-        
+
     }
 }
