@@ -10,7 +10,7 @@ namespace Cleverbot.Net
 {
     public class Cleverbot
     {
-        private string ApiKey = "";
+        private string ApiKey { get; }
         
         /// <summary>
         /// Creates a Cleverbot instance.
@@ -29,21 +29,23 @@ namespace Cleverbot.Net
             /*
              * If you're going to work async, it might throw random errors e.g. Invocation error. 
              * Use this test message to confirm it works.
+             * jeuxjeux20's note : I would suggest making test units
              */ 
             if (sendTestMessage)
             {
-                CleverbotResponse r = GetResponse("test");
+               var test = GetResponseAsync("test").Result;
             }
         }
 
         /// <summary>
-        /// Send a message to cleverbot and get a response to it.
+        /// Send a message to cleverbot and get a response to it. Consider using <see cref="GetResponseAsync(string)"/>
         /// </summary>
         /// <param name="message">your message sent to cleverbot</param>
         /// <returns>response from the cleverbot.com api</returns>
+        [Obsolete("Use GetResponseAsync instead.")]
         public CleverbotResponse GetResponse(string message)
         {
-            return CleverbotResponse.Create(message, "", ApiKey);
+            return CleverbotResponse.CreateAsync(message, "", ApiKey).Result;
         }
 
         /// <summary>
@@ -56,15 +58,6 @@ namespace Cleverbot.Net
             return await CleverbotResponse.CreateAsync(message, "", ApiKey);
         }
 
-        /// <summary>
-        /// Send a message to cleverbot asynchronously and get a response.
-        /// </summary>
-        /// <param name="message">your message sent to cleverbot</param>
-        /// <param name="result">result delegate </param>
-        /// <returns></returns>
-        public void GetResponseAsync(string message, Action<CleverbotResponse> result)
-        {
-            CleverbotResponse.CreateAsync(message, "", ApiKey, result);
-        }
+        
     }
 }
