@@ -22,7 +22,7 @@ Console.WriteLine(r.Response);
 Async
 ```csharp
 Cleverbot cleverbot = new Cleverbot("api-key-here");
-await cleverbot.GetResponseAsync("Hello!", r => {
+cleverbot.GetResponseAsync("Hello!", r => {
   Label1.Text = r.Response;
 });
 Label1.Text = "Cleverbot is typing...";
