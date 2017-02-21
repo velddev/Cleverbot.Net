@@ -782,7 +782,7 @@ namespace Cleverbot.Net
         {
             return await CreateAsync(text, conversationId, apikey);
         }
-        public async Task RespondAsync(string text, Action<CleverbotResponse> resultAction)
+        public void RespondAsync(string text, Action<CleverbotResponse> resultAction)
         {
             CreateAsync(text, conversationId, apikey, resultAction);
         }

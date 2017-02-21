@@ -11,10 +11,29 @@ namespace Cleverbot.Net
     public class Cleverbot
     {
         private string ApiKey = "";
-
-        public Cleverbot(string apikey)
+        
+        /// <summary>
+        /// Creates a Cleverbot instance.
+        /// </summary>
+        /// <param name="apikey">Your api key obtained from https://cleverbot.com/api/</param>
+        /// <param name="sendTestMessage">Send a test message to be sure you're connected</param>
+        public Cleverbot(string apikey, bool sendTestMessage = true)
         {
+            if (string.IsNullOrWhiteSpace(apikey))
+            {
+                throw new Exception("You can't connect without a API key.");
+            }
+
             ApiKey = apikey;
+
+            /*
+             * If you're going to work async, it might throw random errors e.g. Invocation error. 
+             * Use this test message to confirm it works.
+             */ 
+            if (sendTestMessage)
+            {
+                CleverbotResponse r = GetResponse("test");
+            }
         }
 
         /// <summary>
