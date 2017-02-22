@@ -16,13 +16,16 @@ namespace Cleverbot.Net
         */
         internal string cs;
 
-        internal string interactionCount;
-
-        internal string inputMessage;
-
-        // ("predicted_input")]
-        internal string predictedInputMessage;
-
+         [JsonProperty("interaction_count")]
+          internal string interactionCount;
+  
+         [JsonProperty("input")]
+          internal string inputMessage;
+  
+       [JsonProperty("predicted_input")]
+         // ("predicted_input")]
+          internal string predictedInputMessage;
+       
         // ("accuracy")]
         internal string accuracy;
 
