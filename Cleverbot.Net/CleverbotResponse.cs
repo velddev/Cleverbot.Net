@@ -53,25 +53,25 @@ namespace Cleverbot.Net
         // ("random_number")]
         internal string randomNumber;
 
-        // ("time_second")]
+        [JsonProperty("time_second")]
         internal string timeSeconds;
 
-        // ("time_minute")]
+        [JsonProperty("time_minute")]
         internal string timeMinutes;
 
-        // ("time_hour")]
+        [JsonProperty("time_hour")]
         internal string timeHours;
 
         // ("time_day_of_week")]
         internal string timeDayOfWeek;
 
-        // ("time_day")]
+        [JsonProperty("time_day")]
         internal string timeDays;
 
-        // ("time_month")]
+       [JsonProperty("time_month")]
         internal string timeMonths;
 
-        // ("time_year")]
+        [JsonProperty("time_year")]
         internal string timeYears;
 
         // ("reaction")]
