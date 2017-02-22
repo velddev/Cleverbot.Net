@@ -12,18 +12,17 @@ Once you've installed Cleverbot.Net in your C# project. Include the new header `
 
 I have two different kind of example code, one sync and one async.
 
-Sync
+Sync (not recommended)
 ```Csharp
 Cleverbot cleverbot = new Cleverbot("api-key-here");
-CleverbotResponse r = cleverbot.GetResponse("Hello!");
+CleverbotResponse r = cleverbot.GetResponseAsync("Hello!").Result;
 Console.WriteLine(r.Response);
 ```
 
 Async
 ```csharp
+// Let's say we are in a thread 
 Cleverbot cleverbot = new Cleverbot("api-key-here");
-cleverbot.GetResponseAsync("Hello!", r => {
-  Label1.Text = r.Response;
-});
 Label1.Text = "Cleverbot is typing...";
+Label1.Text = await cleverbot.GetResponseAsync("Hello!");
 ```
