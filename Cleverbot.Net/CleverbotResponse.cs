@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Net;
 
@@ -13,8 +13,9 @@ namespace Cleverbot.Net
         #region internals
         /*
          Json.NET automatically detects names using underscores and camelCase, so no need for unnecessary attributes ;)
+
+         Oh, I didn't know this!
         */
-        internal string cs;
 
          [JsonProperty("interaction_count")]
           internal string interactionCount;
@@ -22,7 +23,7 @@ namespace Cleverbot.Net
          [JsonProperty("input")]
           internal string inputMessage;
   
-       [JsonProperty("predicted_input")]
+         [JsonProperty("predicted_input")]
          // ("predicted_input")]
           internal string predictedInputMessage;
        
@@ -32,10 +33,10 @@ namespace Cleverbot.Net
         // ("output_label")]
         internal string outputLabel;
 
-        // ("output")]
+        // [JsonProperty("output")]
         internal string output;
 
-        // ("conversation_id")]
+        //[JsonProperty("conversation_id")]
         internal string conversationId;
 
         // ("errorline")]
@@ -278,21 +279,21 @@ namespace Cleverbot.Net
         /// <summary>
         /// Id to keep track of the conversation
         /// </summary>
+        public string ConversationId => conversationId;
 
-        public string ConversationId => cs;
-
+        /// <summary>
+        /// Cleverbot's response message
+        /// </summary>
         public string Response => output;
 
         /// <summary>
         /// The user's latest message
         /// </summary>
-
         public string Input => inputMessage;
 
         private string apiKey;
 
         internal static async Task<CleverbotResponse> CreateAsync(string message, string conversationId, string apiKey)
-
         {
             WebClient c = new WebClient();
 
@@ -311,13 +312,11 @@ namespace Cleverbot.Net
         }
 
         /*internal static async Task<CleverbotResponse> CreateAsync(string message, string conversationId, string apiKey)
-            => await Create(message, conversationId, apiKey);*/
-
-       
+            => await Create(message, conversationId, apiKey);*/      
 
         internal void CreateInteractionsList()
         {
-            
+           
             foreach (var item in GetType().GetFields())
             {
                 if (item.Name.StartsWith("interaction"))
@@ -332,9 +331,7 @@ namespace Cleverbot.Net
 
         public CleverbotResponse Respond(string text)
         {
-
             return CreateAsync(text, ConversationId, apiKey).Result;
-
         }
 
         public async Task<CleverbotResponse> RespondAsync(string text)

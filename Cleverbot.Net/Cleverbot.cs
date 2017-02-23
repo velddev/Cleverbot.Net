@@ -59,7 +59,5 @@ namespace Cleverbot.Net
         {
             return await CleverbotResponse.CreateAsync(message, "", ApiKey);
         }
-
-
     }
 }
