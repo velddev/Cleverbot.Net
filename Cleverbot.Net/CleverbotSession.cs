@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Cleverbot.Net
 {
-    public class Cleverbot
+    public class CleverbotSession
     {
 
         private string ApiKey { get; }
@@ -18,7 +18,7 @@ namespace Cleverbot.Net
         /// </summary>
         /// <param name="apikey">Your api key obtained from https://cleverbot.com/api/</param>
         /// <param name="sendTestMessage">Send a test message to be sure you're connected</param>
-        public Cleverbot(string apikey, bool sendTestMessage = true)
+        public CleverbotSession(string apikey, bool sendTestMessage = true)
         {
             if (string.IsNullOrWhiteSpace(apikey))
             {

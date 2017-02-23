@@ -18,7 +18,7 @@ namespace Cleverbot.Net.Example.Forms
 
         //To disable:
         //Cleverbot cleverbot = new Cleverbot("your-api-key", false);
-        Cleverbot cleverbot = new Cleverbot("your-api-key");
+        CleverbotSession cleverbot = new CleverbotSession("your-api-key");
 
         public Form1()
         {

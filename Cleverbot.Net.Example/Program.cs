@@ -14,7 +14,7 @@ namespace Cleverbot.Net.Example
 
         public async Task CleverbotLoop()
         {
-            Cleverbot cleverbot = new Cleverbot("your-api-key");
+            CleverbotSession cleverbot = new CleverbotSession("your-api-key");
 
             Console.WriteLine("Hello in the Cleverbot.Net test app, please type your message.\n");
 
