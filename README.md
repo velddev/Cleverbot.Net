@@ -14,7 +14,7 @@ I have two different kind of example code, one sync and one async.
 
 Sync (not recommended)
 ```Csharp
-Cleverbot cleverbot = new Cleverbot("api-key-here");
+CleverbotSession cleverbot = new CleverbotSession("api-key-here");
 CleverbotResponse r = cleverbot.GetResponseAsync("Hello!").Result;
 Console.WriteLine(r.Response);
 ```
@@ -22,7 +22,7 @@ Console.WriteLine(r.Response);
 Async
 ```csharp
 // Let's say we are in a thread 
-Cleverbot cleverbot = new Cleverbot("api-key-here");
+CleverbotSession cleverbot = new CleverbotSession("api-key-here");
 Label1.Text = "Cleverbot is typing...";
 Label1.Text = await cleverbot.GetResponseAsync("Hello!");
 ```
