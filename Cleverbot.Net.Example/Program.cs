@@ -18,22 +18,20 @@ namespace Cleverbot.Net.Example
 
             Console.WriteLine("Hello in the Cleverbot.Net test app, please type your message.\n");
 
+            string msg = Console.ReadLine();
+            Console.Write("...");
+            CleverbotResponse r = cleverbot.GetResponseAsync(msg).Result;
+            Console.CursorLeft = 0;
+            Console.WriteLine(r.Response);
+
             while (true)
             {
                 Console.ForegroundColor = ConsoleColor.Gray;
-
-                string msg = Console.ReadLine();
-
-                cleverbot.GetResponseAsync(msg, x =>
-                {
-                    Console.CursorLeft = 0;
-
-                    Console.ForegroundColor = ConsoleColor.White;
-
-                    Console.WriteLine(x.Response);
-                });
-
+                msg = Console.ReadLine();
                 Console.Write("...");
+                r = r.RespondAsync(msg).Result;
+                Console.CursorLeft = 0;
+                Console.WriteLine(r.Response); 
             }
         }
     }
