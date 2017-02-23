@@ -18,7 +18,7 @@ namespace Cleverbot.Net.Example.Forms
 
         //To disable:
         //Cleverbot cleverbot = new Cleverbot("your-api-key", false);
-        Cleverbot cleverbot = new Cleverbot("your-api-key");
+        Cleverbot cleverbot = new Cleverbot("3f4750604ead0d01f3c368954aae6608");
 
         public Form1()
         {
@@ -48,24 +48,22 @@ namespace Cleverbot.Net.Example.Forms
                 Textbox_Input.ForeColor = Color.Gray;
             };
 
+            // Is freezing on GetResponseAsync(...);
             Textbox_Input.KeyDown += (s, e) =>
             {
                 if(e.KeyData == Keys.Enter)
                 {
-                    if(string.IsNullOrWhiteSpace(Textbox_Input.Text))
+                    if (string.IsNullOrWhiteSpace(Textbox_Input.Text))
                     {
                         return;
                     }
 
-                    cleverbot.GetResponseAsync(Textbox_Input.Text, result =>
-                    {
-                        Label_Status.Text = "";
-                        SendMessage(result.Response, "Cleverbot");
-                    });
-
-                    Label_Status.Text = "Cleverbot is typing...";
                     SendMessage(Textbox_Input.Text, "You");
                     Textbox_Input.Text = "";
+
+                    Label_Status.Text = "Cleverbot is typing...";
+                    SendMessage(cleverbot.GetResponseAsync(Textbox_Input.Text).GetAwaiter().GetResult().Response, "Cleverbot");
+                    Label_Status.Text = "";
                 }
             };
         }
