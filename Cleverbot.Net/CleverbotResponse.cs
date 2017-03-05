@@ -14,7 +14,9 @@ namespace Cleverbot.Net
         /*
          Json.NET automatically detects names using underscores and camelCase, so no need for unnecessary attributes ;)
 
-         Oh, I didn't know this!
+         Oh, I didn't know this! 
+         
+         It couldn't find output or conversationid :(
         */
 
          [JsonProperty("interaction_count")]
@@ -33,12 +35,12 @@ namespace Cleverbot.Net
         // ("output_label")]
         internal string outputLabel;
 
-        // [JsonProperty("output")]
+        [JsonProperty("output")]
         internal string output;
 
-        //[JsonProperty("conversation_id")]
+        [JsonProperty("conversation_id")]
         internal string conversationId;
-
+        
         // ("errorline")]
         internal string errorLine;
 
@@ -118,6 +120,7 @@ namespace Cleverbot.Net
         internal string callback;
 
         // TODO: convince Rollo to make these a array/list in json
+        // It failed
         // ("interaction_1")]
         internal string interaction1;
 

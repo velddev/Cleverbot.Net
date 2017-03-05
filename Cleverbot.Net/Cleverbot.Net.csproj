@@ -45,8 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cleverbot.cs" />
     <Compile Include="CleverbotResponse.cs" />
+    <Compile Include="CleverbotSession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
