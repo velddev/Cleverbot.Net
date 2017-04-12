@@ -1,5 +1,5 @@
 # Cleverbot.Net
-A cleverbot wrapper for .Net 4.5/4.6.
+A cleverbot wrapper for .NET using .NET Standard 1.1 (works with .NET Framework 4.5+ and .NET Core).
 
 ## How to set up?
 First, get an api key from http://www.cleverbot.com/api/ to be able to create a instance of 
