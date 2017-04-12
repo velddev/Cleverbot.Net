@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Direitos Autorais ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: NeutralResourcesLanguage("pt-BR")]
+[assembly: NeutralResourcesLanguage("en")]
 
 // As informações da versão de um assembly consistem nos quatro valores a seguir:
 //
