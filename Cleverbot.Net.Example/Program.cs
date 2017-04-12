@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Cleverbot.Net;
-using System.Diagnostics;
 
 namespace Cleverbot.Net.Example
 {
@@ -20,7 +15,7 @@ namespace Cleverbot.Net.Example
 
             string msg = Console.ReadLine();
             Console.Write("...");
-            CleverbotResponse r = cleverbot.GetResponseAsync(msg).Result;
+            CleverbotResponse r = await cleverbot.GetResponseAsync(msg);
             Console.CursorLeft = 0;
             Console.WriteLine(r.Response);
 
@@ -29,9 +24,9 @@ namespace Cleverbot.Net.Example
                 Console.ForegroundColor = ConsoleColor.Gray;
                 msg = Console.ReadLine();
                 Console.Write("...");
-                r = r.RespondAsync(msg).Result;
+                r = await r.RespondAsync(msg);
                 Console.CursorLeft = 0;
-                Console.WriteLine(r.Response); 
+                Console.WriteLine(r.Response);
             }
         }
     }

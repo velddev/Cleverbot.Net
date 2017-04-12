@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using System.Net;
+using System.Net.Http;
+using System.Reflection;
 
 namespace Cleverbot.Net
 {
@@ -19,16 +18,16 @@ namespace Cleverbot.Net
          It couldn't find output or conversationid :(
         */
 
-         [JsonProperty("interaction_count")]
-          internal string interactionCount;
-  
-         [JsonProperty("input")]
-          internal string inputMessage;
-  
-         [JsonProperty("predicted_input")]
-         // ("predicted_input")]
-          internal string predictedInputMessage;
-       
+        [JsonProperty("interaction_count")]
+        internal string interactionCount;
+
+        [JsonProperty("input")]
+        internal string inputMessage;
+
+        [JsonProperty("predicted_input")]
+        // ("predicted_input")]
+        internal string predictedInputMessage;
+
         // ("accuracy")]
         internal string accuracy;
 
@@ -40,7 +39,7 @@ namespace Cleverbot.Net
 
         [JsonProperty("conversation_id")]
         internal string conversationId;
-        
+
         // ("errorline")]
         internal string errorLine;
 
@@ -71,7 +70,7 @@ namespace Cleverbot.Net
         [JsonProperty("time_day")]
         internal string timeDays;
 
-       [JsonProperty("time_month")]
+        [JsonProperty("time_month")]
         internal string timeMonths;
 
         [JsonProperty("time_year")]
@@ -275,7 +274,7 @@ namespace Cleverbot.Net
 
         internal string interaction1other;
 
-        internal List<string> interactions = new List<string>();
+        internal List<string> allInteractions = new List<string>();
 
         #endregion
 
@@ -298,14 +297,14 @@ namespace Cleverbot.Net
 
         internal static async Task<CleverbotResponse> CreateAsync(string message, string conversationId, string apiKey)
         {
-            WebClient c = new WebClient();
+            HttpClient c = new HttpClient();
 
             string conversationLine = (string.IsNullOrWhiteSpace(conversationId) ? "" : $"&cs={conversationId}");
 
-            byte[] bytesRecieved = await c.DownloadDataTaskAsync($"https://www.cleverbot.com/getreply?key={ apiKey }&wrapper=cleverbot.net&input={ message }{ conversationLine }");
+            byte[] bytesReceived = await c.GetByteArrayAsync($"https://www.cleverbot.com/getreply?key={ apiKey }&wrapper=cleverbot.net&input={ message }{ conversationLine }");
 
-            if (bytesRecieved == null) return null;
-            string result = Encoding.UTF8.GetString(bytesRecieved);
+            if (bytesReceived == null) return null;
+            string result = Encoding.UTF8.GetString(bytesReceived, 0, bytesReceived.Length);
             CleverbotResponse response = JsonConvert.DeserializeObject<CleverbotResponse>(result);
             if (response == null) return null;
             response.apiKey = apiKey;
@@ -315,18 +314,17 @@ namespace Cleverbot.Net
         }
 
         /*internal static async Task<CleverbotResponse> CreateAsync(string message, string conversationId, string apiKey)
-            => await Create(message, conversationId, apiKey);*/      
+            => await Create(message, conversationId, apiKey);*/
 
         internal void CreateInteractionsList()
         {
-           
-            foreach (var item in GetType().GetFields())
+            foreach (var item in GetType().GetTypeInfo().DeclaredFields)
             {
                 if (item.Name.StartsWith("interaction"))
                 {
-                    if (string.IsNullOrWhiteSpace((string) item.GetValue(this)))
+                    if (string.IsNullOrWhiteSpace((string)item.GetValue(this)))
                     {
-                        interactions.Add(item.GetValue(this) as string);
+                        allInteractions.Add(item.GetValue(this) as string);
                     }
                 }
             }
@@ -334,14 +332,14 @@ namespace Cleverbot.Net
 
         public CleverbotResponse Respond(string text)
         {
-            return CreateAsync(text, ConversationId, apiKey).Result;
+            return CreateAsync(text, ConversationId, apiKey).GetAwaiter().GetResult();
         }
 
         public async Task<CleverbotResponse> RespondAsync(string text)
         {
             return await CreateAsync(text, conversationId, apiKey);
         }
-       
+
 
     }
 }

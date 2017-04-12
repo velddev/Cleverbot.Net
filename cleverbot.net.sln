@@ -1,11 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cleverbot.Net.Example", "Cleverbot.Net.Example\Cleverbot.Net.Example.csproj", "{3D4595D1-B648-4E1E-9599-959A8ED49D19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cleverbot.Net", "Cleverbot.Net\Cleverbot.Net.csproj", "{C2CA19C1-D980-46FB-98B3-78685D8BAE43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cleverbot.Net", "Cleverbot.Net\Cleverbot.Net.csproj", "{D5D91DC2-758D-4A48-83C5-B0FE694A25E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cleverbot.Net.Example", "Cleverbot.Net.Example\Cleverbot.Net.Example.csproj", "{FFA08C22-530F-4C45-86EE-7BCB558FEDE6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C2CA19C1-D980-46FB-98B3-78685D8BAE43} = {C2CA19C1-D980-46FB-98B3-78685D8BAE43}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cleverbot.Net.Example.Forms", "Cleverbot.Net.Example.Forms\Cleverbot.Net.Example.Forms.csproj", "{F450D360-4B9B-456B-886B-14A6A4319F87}"
 EndProject
@@ -15,14 +18,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3D4595D1-B648-4E1E-9599-959A8ED49D19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D4595D1-B648-4E1E-9599-959A8ED49D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D4595D1-B648-4E1E-9599-959A8ED49D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D4595D1-B648-4E1E-9599-959A8ED49D19}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D5D91DC2-758D-4A48-83C5-B0FE694A25E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D5D91DC2-758D-4A48-83C5-B0FE694A25E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D5D91DC2-758D-4A48-83C5-B0FE694A25E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D5D91DC2-758D-4A48-83C5-B0FE694A25E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2CA19C1-D980-46FB-98B3-78685D8BAE43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2CA19C1-D980-46FB-98B3-78685D8BAE43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2CA19C1-D980-46FB-98B3-78685D8BAE43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2CA19C1-D980-46FB-98B3-78685D8BAE43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFA08C22-530F-4C45-86EE-7BCB558FEDE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFA08C22-530F-4C45-86EE-7BCB558FEDE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFA08C22-530F-4C45-86EE-7BCB558FEDE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFA08C22-530F-4C45-86EE-7BCB558FEDE6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F450D360-4B9B-456B-886B-14A6A4319F87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F450D360-4B9B-456B-886B-14A6A4319F87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F450D360-4B9B-456B-886B-14A6A4319F87}.Release|Any CPU.ActiveCfg = Release|Any CPU
