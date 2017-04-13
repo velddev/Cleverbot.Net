@@ -301,7 +301,7 @@ namespace Cleverbot.Net
 
             string conversationLine = (string.IsNullOrWhiteSpace(conversationId) ? "" : $"&cs={conversationId}");
 
-            byte[] bytesReceived = await c.GetByteArrayAsync($"https://www.cleverbot.com/getreply?key={ apiKey }&wrapper=cleverbot.net&input={ message }{ conversationLine }");
+            byte[] bytesReceived = await c.GetByteArrayAsync($"https://www.cleverbot.com/getreply?key={ apiKey }&wrapper=cleverbot.net&input={ message }{ conversationLine }").ConfigureAwait(false);
 
             if (bytesReceived == null) return null;
             string result = Encoding.UTF8.GetString(bytesReceived, 0, bytesReceived.Length);
@@ -335,9 +335,9 @@ namespace Cleverbot.Net
             return CreateAsync(text, ConversationId, apiKey).GetAwaiter().GetResult();
         }
 
-        public async Task<CleverbotResponse> RespondAsync(string text)
+        public Task<CleverbotResponse> RespondAsync(string text)
         {
-            return await CreateAsync(text, conversationId, apiKey);
+            return CreateAsync(text, conversationId, apiKey);
         }
 
 

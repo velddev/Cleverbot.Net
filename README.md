@@ -1,5 +1,5 @@
 # Cleverbot.Net
-A cleverbot wrapper for .NET using .NET Standard 1.1 (works with .NET Framework 4.5+ and .NET Core).
+A cleverbot wrapper for .NET 4.5+ and .NET Core (targets .NET Standard 1.1).
 
 ## How to set up?
 First, get an api key from http://www.cleverbot.com/api/ to be able to create a instance of 
@@ -15,7 +15,7 @@ I have two different kind of example code, one sync and one async.
 Sync (not recommended)
 ```Csharp
 CleverbotSession cleverbot = new CleverbotSession("api-key-here");
-CleverbotResponse r = cleverbot.GetResponseAsync("Hello!").Result;
+CleverbotResponse r = cleverbot.GetResponse("Hello!");
 Console.WriteLine(r.Response);
 ```
 
@@ -23,6 +23,7 @@ Async
 ```csharp
 // Let's say we are in a thread 
 CleverbotSession cleverbot = new CleverbotSession("api-key-here");
+CleverbotResponse r = await cleverbot.GetResponseAsync("Hello!");
 Label1.Text = "Cleverbot is typing...";
-Label1.Text = await cleverbot.GetResponseAsync("Hello!");
+Label1.Text = r.Response;
 ```
