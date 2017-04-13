@@ -23,7 +23,7 @@ Async
 ```csharp
 // Let's say we are in a thread 
 CleverbotSession cleverbot = new CleverbotSession("api-key-here");
-CleverbotResponse r = await cleverbot.GetResponseAsync("Hello!");
 Label1.Text = "Cleverbot is typing...";
+CleverbotResponse r = await cleverbot.GetResponseAsync("Hello!");
 Label1.Text = r.Response;
 ```
