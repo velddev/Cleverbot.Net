@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Cleverbot.Net.Example.Forms</RootNamespace>
     <AssemblyName>Cleverbot.Net.Example.Forms</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -87,7 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cleverbot.Net\Cleverbot.Net.csproj">
-      <Project>{d5d91dc2-758d-4a48-83c5-b0fe694a25e1}</Project>
+      <Project>{9cb75a26-bc6e-4b50-9f00-971a6fea8cd1}</Project>
       <Name>Cleverbot.Net</Name>
     </ProjectReference>
   </ItemGroup>

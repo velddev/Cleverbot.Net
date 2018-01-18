@@ -11,7 +11,7 @@ namespace Cleverbot.Net
         /// <summary>
         /// Creates a Cleverbot instance.
         /// </summary>
-        /// <param name="apikey">Your api key obtained from https://cleverbot.com/api/</param>
+        /// <param name="apikey">Your api key obtained from https://cleverbot.com/api/ </param>
         /// <param name="sendTestMessage">Send a test message to be sure you're connected</param>
         public CleverbotSession(string apikey, bool sendTestMessage = true)
         {
