@@ -295,13 +295,17 @@ namespace Cleverbot.Net
 
         private string apiKey;
 
-        internal static async Task<CleverbotResponse> CreateAsync(string message, string conversationId, string apiKey)
+        internal static async Task<CleverbotResponse> CreateAsync(string message, string conversationId, string apiKey, int? wacky = null, int? talkative = null, int? attentive = null)
         {
             HttpClient c = new HttpClient();
 
             string conversationLine = (string.IsNullOrWhiteSpace(conversationId) ? "" : $"&cs={conversationId}");
 
-            byte[] bytesReceived = await c.GetByteArrayAsync($"https://www.cleverbot.com/getreply?key={ apiKey }&wrapper=cleverbot.net&input={ message }{ conversationLine }").ConfigureAwait(false);
+            string tweak_1 = wacky.HasValue ? $"&cb_settings_tweak1={wacky.Value}" : "";
+            string tweak_2 = talkative.HasValue ? $"&cb_settings_tweak2={talkative.Value}" : "";
+            string tweak_3 = attentive.HasValue ? $"&cb_settings_tweak3={attentive.Value}" : "";
+
+            byte[] bytesReceived = await c.GetByteArrayAsync($"https://www.cleverbot.com/getreply?key={ apiKey }&wrapper=cleverbot.net&input={ message }{ conversationLine }{tweak_1}{tweak_2}{tweak_3}").ConfigureAwait(false);
 
             if (bytesReceived == null) return null;
             string result = Encoding.UTF8.GetString(bytesReceived, 0, bytesReceived.Length);
@@ -330,14 +334,14 @@ namespace Cleverbot.Net
             }
         }
 
-        public CleverbotResponse Respond(string text)
+        public CleverbotResponse Respond(string text, int? wacky = null, int? talkative = null, int? attentive = null)
         {
-            return CreateAsync(text, ConversationId, apiKey).GetAwaiter().GetResult();
+            return CreateAsync(text, ConversationId, apiKey, wacky, talkative, attentive).GetAwaiter().GetResult();
         }
 
-        public Task<CleverbotResponse> RespondAsync(string text)
+        public Task<CleverbotResponse> RespondAsync(string text, int? wacky = null, int? talkative = null, int? attentive = null)
         {
-            return CreateAsync(text, conversationId, apiKey);
+            return CreateAsync(text, conversationId, apiKey, wacky, talkative, attentive);
         }
 
 
