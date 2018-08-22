@@ -302,8 +302,8 @@ namespace Cleverbot.Net
             string conversationLine = (string.IsNullOrWhiteSpace(conversationId) ? "" : $"&cs={conversationId}");
 
             string tweak_1 = wacky.HasValue ? $"&cb_settings_tweak1={wacky.Value}" : "";
-            string tweak_2 = wacky.HasValue ? $"&cb_settings_tweak2={talkative.Value}" : "";
-            string tweak_3 = wacky.HasValue ? $"&cb_settings_tweak3={attentive.Value}" : "";
+            string tweak_2 = talkative.HasValue ? $"&cb_settings_tweak2={talkative.Value}" : "";
+            string tweak_3 = attentive.HasValue ? $"&cb_settings_tweak3={attentive.Value}" : "";
 
             byte[] bytesReceived = await c.GetByteArrayAsync($"https://www.cleverbot.com/getreply?key={ apiKey }&wrapper=cleverbot.net&input={ message }{ conversationLine }{tweak_1}{tweak_2}{tweak_3}").ConfigureAwait(false);
 
